@@ -1,3 +1,4 @@
+# View da tabela cliente
 CREATE 
     ALGORITHM = UNDEFINED 
     DEFINER = `root`@`localhost` 
@@ -16,6 +17,8 @@ VIEW `vw_clientes_ordenados` AS
         `cliente`
     ORDER BY `cliente`.`nomeCliente`;
 
+
+# View da tabela colaborador
 CREATE 
     ALGORITHM = UNDEFINED 
     DEFINER = `root`@`localhost` 
@@ -32,6 +35,8 @@ VIEW `vw_colaboradores_ativos` AS
     WHERE
         `colaborador`.`statusColaborador` = 1;
 
+
+# View da tabela consulta
 CREATE 
     ALGORITHM = UNDEFINED 
     DEFINER = `root`@`localhost` 
@@ -50,6 +55,8 @@ VIEW `vw_proximas_consultas` AS
     WHERE
         `c`.`dataConsulta` >= CURDATE();
 
+
+# View da tabela unidade_saude
 CREATE 
     ALGORITHM = UNDEFINED 
     DEFINER = `root`@`localhost` 

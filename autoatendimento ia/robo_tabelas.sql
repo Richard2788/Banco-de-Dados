@@ -1,5 +1,9 @@
+# Database: robo
 CREATE DATABASE robo;
+DROP TABLE `robo`.`cliente`;
 
+
+# Tabela cliente
 DROP TABLE `robo`.`cliente`;
 CREATE TABLE `robo`.`cliente`(
 	idCliente INT NOT NULL AUTO_INCREMENT,
@@ -9,7 +13,6 @@ CREATE TABLE `robo`.`cliente`(
     generoCliente VARCHAR(15) NOT NULL,
     PRIMARY KEY (idCliente)
 );
-
 INSERT INTO `robo`.`cliente` (nomeCliente, enderecoCliente, data_nascCliente, generoCliente) VALUES
 ('Ana Silva', '01001000', '1990-05-15', 'Feminino'),
 ('Bruno Costa', '20010010', '1985-11-22', 'Masculino'),
@@ -18,6 +21,7 @@ INSERT INTO `robo`.`cliente` (nomeCliente, enderecoCliente, data_nascCliente, ge
 ('Eduardo Santos', '50710000', '2001-12-02', 'Masculino');
 
 
+# Tabela colaborador
 DROP TABLE `robo`.`colaborador`;
 CREATE TABLE `robo`.`colaborador`(
 	idColaborador INT NOT NULL AUTO_INCREMENT,
@@ -28,7 +32,6 @@ CREATE TABLE `robo`.`colaborador`(
     statusColaborador BOOLEAN NOT NULL,
     PRIMARY KEY (idColaborador)
 );
-
 INSERT INTO `robo`.`colaborador` (nomeColaborador, cargoColaborador, telefoneColaborador, crmColaborador, statusColaborador) VALUES
 ('Dr. Arnaldo Ribeiro', 'Médico', '11999998888', '123456SP', 1),
 ('Dra. Beatriz Lima', 'Médica', '21988887777', '654321RJ', 1),
@@ -36,6 +39,8 @@ INSERT INTO `robo`.`colaborador` (nomeColaborador, cargoColaborador, telefoneCol
 ('Dra. Daniela Souza', 'Médica', '41966665555', '112233PR', 1),
 ('Dr. Eduardo Rocha', 'Médico', '51955554444', '445566RS', 1);
 
+
+# Tabela consulta
 DROP TABLE `robo`.`consulta`;
 CREATE TABLE `robo`.`consulta`(
 	idConsulta INT NOT NULL AUTO_INCREMENT,
@@ -47,7 +52,6 @@ CREATE TABLE `robo`.`consulta`(
     PRIMARY KEY (idConsulta),
     FOREIGN KEY (idCliente) REFERENCES `robo`.`cliente`(`idCliente`)
 );
-
 INSERT INTO `robo`.`consulta` (dataConsulta, idCliente, idAgenda, idMedico, localConsulta) VALUES
 ('2026-11-05', 1, 10, 1, 'Consultório A - Ala Norte'),
 ('2026-11-06', 2, 11, 2, 'Consultório B - Ala Sul'),
@@ -55,6 +59,8 @@ INSERT INTO `robo`.`consulta` (dataConsulta, idCliente, idAgenda, idMedico, loca
 ('2026-11-10', 4, 13, 4, 'Centro Clínico - Sala 202'),
 ('2026-10-25', 5, 14, 5, 'Consultório C - Prédio Principal');
 
+
+# Tabela unidade_saude
 DROP TABLE `robo`.`unidade_saude`;
 CREATE TABLE `robo`.`unidade_saude`(
 	idUnidade_saude INT NOT NULL AUTO_INCREMENT,
@@ -63,7 +69,6 @@ CREATE TABLE `robo`.`unidade_saude`(
     numero_loteUnidade_saude VARCHAR(20) NOT NULL,
     PRIMARY KEY (idUnidade_saude)
 );
-
 INSERT INTO `robo`.`unidade_saude` (nomeUnidade_saude, enderecoUnidade_saude, numero_loteUnidade_saude) VALUES
 ('Hospital Central de Emergências', '01001000', 'LOTE-001A'),
 ('UPA Prontomed', '20010010', 'LOTE-002H'),
